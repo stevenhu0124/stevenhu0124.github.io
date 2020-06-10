@@ -27,7 +27,7 @@
 <meta property="og:site_name" content="史帝芬技術分享">
 <meta property="og:description" content="寫程式就是學無止盡，不停的學習">
 <meta property="og:locale" content="zh_TW">
-<meta property="article:author" content="cloudshao1988(Steven hu)">
+<meta property="article:author" content="Steven hu">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="https://stevenhu0124.github.io/">
@@ -162,11 +162,11 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://stevenhu0124.github.io/hello-world/">
+    <link itemprop="mainEntityOfPage" href="https://stevenhu0124.github.io/hexo-setup/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="cloudshao1988(Steven hu)">
+      <meta itemprop="name" content="Steven hu">
       <meta itemprop="description" content="寫程式就是學無止盡，不停的學習">
     </span>
 
@@ -176,7 +176,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/hello-world/" class="post-title-link" itemprop="url">Hello World!!!</a>
+            <a href="/hexo-setup/" class="post-title-link" itemprop="url">Hexo 建置</a>
         </h2>
 
         <div class="post-meta">
@@ -185,10 +185,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">發表於</span>
-              
 
-              <time title="創建時間：2020-06-10 10:03:07 / 修改時間：23:25:00" itemprop="dateCreated datePublished" datetime="2020-06-10T10:03:07+08:00">2020-06-10</time>
+              <time title="創建時間：2020-06-10 23:58:56" itemprop="dateCreated datePublished" datetime="2020-06-10T23:58:56+08:00">2020-06-10</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2020-06-11 01:53:32" itemprop="dateModified" datetime="2020-06-11T01:53:32+08:00">2020-06-11</time>
+              </span>
 
           
 
@@ -201,16 +207,41 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/hello-world/#more" rel="contents">
-                閱讀全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
+          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>唯有不斷的學習充實自己，方能使自己持續成長，程式語言的世界中只有學無止盡，人腦不比電腦，我們只能透過紀錄的方式來加深印象，甚至是幫助也正在學習的你們。最後終於花了點時間看完官方的文件，也終於將BLOG的雛型給建立起來，俗話話說得好打鐵就是要趁熱，馬上完成第一篇教學紀錄。</p>
+<h2 id="使用-Hexo-的原因"><a href="#使用-Hexo-的原因" class="headerlink" title="使用 Hexo 的原因"></a>使用 Hexo 的原因</h2><p>在一開始計畫要寫BLOG的時候，上網找了許多資源，但有的不是介面老舊，就是CODE的排版不友善，要不然就是要花上一筆費用，視錢如命的我怎麼可能輕易妥協，就找到了Hexo啦!</p>
+<ul>
+<li>快速的Deploy到Github(免費仔如我，可是超級心動DERRRRRRRRRR)</li>
+<li>透過Hexo、MARKDOWN，BLOG輕輕鬆鬆建置起來</li>
+<li>支援多種外掛跟免費主題，選擇性非常高</li>
+<li>免費仔最關心的一點，Github不會輕易掛掉阿!</li>
+</ul>
+<h2 id="前置作業"><a href="#前置作業" class="headerlink" title="前置作業"></a>前置作業</h2><ul>
+<li><a href="https://nodejs.org/en/download/" target="_blank" rel="noopener" title="Node.js">Node.js</a> (官方文件建議使用 Node.js 10.0 及以上版本)，根據自己的作業系統選擇安裝檔。</li>
+<li><a href="https://git-scm.com/" target="_blank" rel="noopener" title="Git">Git</a>，當然你要申請一組<a href="https://github.com/" target="_blank" rel="noopener" title="Git">Github</a>的帳號，之後要直接Deploy到你的 <code>git repository</code></li>
+</ul>
+<h2 id="Hexo安裝"><a href="#Hexo安裝" class="headerlink" title="Hexo安裝"></a>Hexo安裝</h2><p>前置作業完成後，我們就開始來安裝Hexo</p>
+<ul>
+<li><p>打開 <code>Git Bash</code>, 輸入以下指令來安裝Hexo</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<hr>
+<h1 id="Hexo-專案建立"><a href="#Hexo-專案建立" class="headerlink" title="Hexo 專案建立"></a>Hexo 專案建立</h1><ul>
+<li>根據你目前<code>Git bash</code>的路徑建立一個Hexo的專案<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init &lt;folder&gt; <span class="comment"># folder可自己定義名稱，hexo會幫你初始化</span></span><br><span class="line">$ <span class="built_in">cd</span> &lt;folder&gt; <span class="comment"># 切換至初始化的資料夾後</span></span><br><span class="line">$ npm install <span class="comment"># 開始安裝npm套件</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h1 id="Hexo-預覽你的Blog"><a href="#Hexo-預覽你的Blog" class="headerlink" title="Hexo 預覽你的Blog"></a>Hexo 預覽你的Blog</h1><ul>
+<li>專案初始化完畢，馬上就可以在local試試看效果囉<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean <span class="comment"># 移除所有靜態檔</span></span><br><span class="line">$ hexo s -g <span class="comment"># 啟動server並且generate靜態檔</span></span><br></pre></td></tr></table></figure></li>
+<li><a href="http://localhost:4000/" target="_blank" rel="noopener" title="Blog">開啟你的Blog</a></li>
+</ul>
+<h1 id="Hexo-設定檔介紹"><a href="#Hexo-設定檔介紹" class="headerlink" title="Hexo 設定檔介紹"></a>Hexo 設定檔介紹</h1><p>當你成功在local建立你的Blog後，可以透過以下兩個檔案去修改，你網站的資訊、以及效果</p>
+<ul>
+<li>專案底下的 <code>_config.yml</code>(作者、語系、Deploy的路徑等各種資訊)</li>
+<li>themes/landscape/<code>_config.yml</code>(預設主題是landscape，之後可自行做更換不同效果)</li>
+</ul>
+
       
     </div>
 
@@ -283,7 +314,7 @@
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name">cloudshao1988(Steven hu)</p>
+  <p class="site-author-name" itemprop="name">Steven hu</p>
   <div class="site-description" itemprop="description">寫程式就是學無止盡，不停的學習</div>
 </div>
 <div class="site-state-wrap motion-element">
@@ -337,7 +368,7 @@
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">cloudshao1988(Steven hu)</span>
+  <span class="author" itemprop="copyrightHolder">Steven hu</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 強力驅動
   </div>
