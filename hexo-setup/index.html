@@ -27,10 +27,12 @@
 <meta property="og:site_name" content="史帝芬技術分享">
 <meta property="og:description" content="前言唯有不斷的學習充實自己，方能使自己持續成長，程式語言的世界中只有學無止盡，人腦不比電腦，我們只能透過紀錄的方式來加深印象，甚至是幫助也正在學習的你們。最後終於花了點時間看完官方的文件，也終於將BLOG的雛型給建立起來，俗話話說得好打鐵就是要趁熱，馬上完成第一篇教學紀錄。 使用 Hexo 的原因在一開始計畫要寫BLOG的時候，上網找了許多資源，但有的不是介面老舊，就是CODE的排版不友善，要不然">
 <meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://stevenhu0124.github.io/images/hexo_init.png">
 <meta property="article:published_time" content="2020-06-10T15:58:56.000Z">
-<meta property="article:modified_time" content="2020-06-11T02:13:48.108Z">
+<meta property="article:modified_time" content="2020-06-11T03:12:21.062Z">
 <meta property="article:author" content="Steven hu">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://stevenhu0124.github.io/images/hexo_init.png">
 
 <link rel="canonical" href="https://stevenhu0124.github.io/hexo-setup/">
 
@@ -195,7 +197,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2020-06-11 10:13:48" itemprop="dateModified" datetime="2020-06-11T10:13:48+08:00">2020-06-11</time>
+                <time title="修改時間：2020-06-11 11:12:21" itemprop="dateModified" datetime="2020-06-11T11:12:21+08:00">2020-06-11</time>
               </span>
 
           
@@ -229,13 +231,14 @@
 </ul>
 <hr>
 <h1 id="Hexo-專案建立"><a href="#Hexo-專案建立" class="headerlink" title="Hexo 專案建立"></a>Hexo 專案建立</h1><ul>
-<li>根據你目前<code>Git bash</code>的路徑建立一個Hexo的專案<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init &lt;folder&gt; <span class="comment"># folder可自己定義名稱，hexo會幫你初始化</span></span><br><span class="line">$ <span class="built_in">cd</span> &lt;folder&gt; <span class="comment"># 切換至初始化的資料夾後</span></span><br><span class="line">$ npm install <span class="comment"># 開始安裝npm套件</span></span><br></pre></td></tr></table></figure>
+<li>根據你目前<code>Git bash</code>的路徑建立一個Hexo的專案<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init &lt;folder&gt; <span class="comment"># folder可自己定義名稱，hexo會幫你初始化</span></span><br><span class="line">$ <span class="built_in">cd</span> &lt;folder&gt; <span class="comment"># 切換至初始化的資料夾後</span></span><br><span class="line">$ npm install <span class="comment"># 開始安裝npm套件</span></span><br></pre></td></tr></table></figure></li>
+<li>建置完成後的結果:  <img src="/images/hexo_init.png">
 
 </li>
 </ul>
 <h1 id="Hexo-預覽你的Blog"><a href="#Hexo-預覽你的Blog" class="headerlink" title="Hexo 預覽你的Blog"></a>Hexo 預覽你的Blog</h1><ul>
-<li>專案初始化完畢，馬上就可以在local試試看效果囉<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean <span class="comment"># 移除所有靜態檔</span></span><br><span class="line">$ hexo s -g <span class="comment"># 啟動server並且generate靜態檔</span></span><br></pre></td></tr></table></figure></li>
-<li><a href="http://localhost:4000/" target="_blank" rel="noopener" title="Blog">開啟你的Blog</a></li>
+<li>專案初始化完畢，馬上就可以在local試試看效果吧<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean <span class="comment"># 移除所有靜態檔</span></span><br><span class="line">$ hexo s -g <span class="comment"># 啟動server並且generate靜態檔</span></span><br></pre></td></tr></table></figure></li>
+<li>當Server建置完成的時候，就可以到 <code>http://localhost:4000/</code>預覽頁面</li>
 </ul>
 <h1 id="Hexo-設定檔介紹"><a href="#Hexo-設定檔介紹" class="headerlink" title="Hexo 設定檔介紹"></a>Hexo 設定檔介紹</h1><p>當你成功在local建立你的Blog後，可以透過以下兩個檔案去修改，你網站的資訊、以及效果</p>
 <ul>
