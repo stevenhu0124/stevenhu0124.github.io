@@ -22,15 +22,17 @@
 
   <meta name="description" content="前言唯有不斷的學習充實自己，方能使自己持續成長，程式語言的世界中只有學無止盡，人腦不比電腦，我們只能透過紀錄的方式來加深印象，甚至是幫助也正在學習的你們。最後終於花了點時間看完官方的文件，也終於將BLOG的雛型給建立起來，俗話話說得好打鐵就是要趁熱，馬上完成第一篇教學紀錄。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo的快速建置">
+<meta property="og:title" content="用Hexo來建立的你的BLOG">
 <meta property="og:url" content="https://stevenhu0124.github.io/hexo-setup/index.html">
 <meta property="og:site_name" content="史帝芬技術分享">
 <meta property="og:description" content="前言唯有不斷的學習充實自己，方能使自己持續成長，程式語言的世界中只有學無止盡，人腦不比電腦，我們只能透過紀錄的方式來加深印象，甚至是幫助也正在學習的你們。最後終於花了點時間看完官方的文件，也終於將BLOG的雛型給建立起來，俗話話說得好打鐵就是要趁熱，馬上完成第一篇教學紀錄。">
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="https://stevenhu0124.github.io/images/hexo-setup_init.png">
 <meta property="og:image" content="https://stevenhu0124.github.io/images/hexo-setup_page.png">
+<meta property="og:image" content="https://stevenhu0124.github.io/images/hexo-setup_git_create.png">
+<meta property="og:image" content="https://stevenhu0124.github.io/images/hexo-setup_git_re.png">
 <meta property="article:published_time" content="2020-06-10T15:58:56.000Z">
-<meta property="article:modified_time" content="2020-06-11T12:49:25.807Z">
+<meta property="article:modified_time" content="2020-06-12T06:04:25.338Z">
 <meta property="article:author" content="Steven hu">
 <meta property="article:tag" content="C#">
 <meta name="twitter:card" content="summary">
@@ -49,7 +51,7 @@
   };
 </script>
 
-  <title>Hexo的快速建置 | 史帝芬技術分享</title>
+  <title>用Hexo來建立的你的BLOG | 史帝芬技術分享</title>
   
 
 
@@ -167,7 +169,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Hexo的快速建置
+          用Hexo來建立的你的BLOG
         </h1>
 
         <div class="post-meta">
@@ -184,7 +186,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2020-06-11 20:49:25" itemprop="dateModified" datetime="2020-06-11T20:49:25+08:00">2020-06-11</time>
+                <time title="修改時間：2020-06-12 14:04:25" itemprop="dateModified" datetime="2020-06-12T14:04:25+08:00">2020-06-12</time>
               </span>
 
           
@@ -248,14 +250,33 @@
 </ul>
 <hr>
 <h1 id="Hexo-設定檔介紹"><a href="#Hexo-設定檔介紹" class="headerlink" title="Hexo 設定檔介紹"></a>Hexo 設定檔介紹</h1><ul>
-<li><p><code>my_blog/scaffolds</code>: 裡面三個檔案分別是你建立文章的時候所預設的相關訊息，例如是否需要時間戳記、Title的名稱…等</p>
-  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo new draft home <span class="comment"># 建立一篇home的文章，hexo server --draft才會顯示</span></span><br><span class="line">hexo new home <span class="comment"># 建立一篇home的文章</span></span><br><span class="line">hexo page home <span class="comment"># 建立一篇home的頁面</span></span><br></pre></td></tr></table></figure>
+<li><code>my_blog/scaffolds</code>:<br>裡面三個檔案分別是你建立文章的時候所預設的相關訊息，<br>例如是否需要時間戳記、Title的名稱…等，這樣一來每次當你文章建立完成的時候，就不需要重複設定在填寫相關的欄位  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: &#123;&#123; title &#125;&#125;</span><br><span class="line">date: &#123;&#123; date &#125;&#125;</span><br><span class="line">top: <span class="literal">false</span></span><br><span class="line">cover: <span class="literal">false</span></span><br><span class="line">password:</span><br><span class="line">toc: <span class="literal">true</span></span><br><span class="line">mathjax: <span class="literal">true</span></span><br><span class="line">summary:</span><br><span class="line">tags:</span><br><span class="line">categories:</span><br><span class="line">---</span><br></pre></td></tr></table></figure></li>
+<li><code>my_blog/_config.yml</code>: 修改網站資訊，例如作者、語系以及Deploy的路徑。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Site</span></span><br><span class="line">title: 史帝芬技術分享</span><br><span class="line">subtitle: 6一波6666</span><br><span class="line">description: 寫程式就是學無止盡，不停的學習</span><br><span class="line">keywords: C<span class="comment">#</span></span><br><span class="line">author: Steven hu</span><br><span class="line">language: zh-TW <span class="comment">#切忌這個要跟你主題所提供的語言檔填上相同的欄位，否則會無法翻譯</span></span><br><span class="line">timezone: Asia/Taipei</span><br><span class="line"></span><br><span class="line"><span class="comment"># URL</span></span><br><span class="line">url: https://stevenhu0124.github.io</span><br><span class="line">root: </span><br><span class="line">permalink: :year/:month/:day/:title/ (https://stevenhu0124.github.io/2020/6/10/home)</span><br><span class="line">permalink_defaults:</span><br><span class="line">pretty_urls:</span><br><span class="line">  trailing_index: <span class="literal">true</span> <span class="comment"># Set to false to remove trailing 'index.html' from permalinks</span></span><br><span class="line">  trailing_html: <span class="literal">true</span> <span class="comment"># Set to false to remove trailing '.html' from permalinks</span></span><br></pre></td></tr></table></figure></li>
+<li><code>my_blog/themes/landscape/_config.yml</code>: 主題的設定檔必須參考你所使用的的主題文件，來了解他有提供那些功能，甚至是一些滑鼠的動畫。</li>
+</ul>
+<h1 id="新增文章"><a href="#新增文章" class="headerlink" title="新增文章"></a>新增文章</h1><pre><code><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo new draft home <span class="comment"># 建立一篇home的草稿，需要執行hexo server --draft才會顯示頁面中</span></span><br><span class="line">hexo new home <span class="comment"># 建立一篇home的文章</span></span><br><span class="line">hexo page home <span class="comment"># 建立一篇home的頁面</span></span><br></pre></td></tr></table></figure></code></pre><p>你可以依照上面的指令來新增文章，<code>hexo new home</code> 會在 <code>source/_posts/home</code>產生一個 <code>Markdown</code>的檔案，這時候就可以對 <code>home.md</code> 來新增內容，當然啦!還是要遵循它的<a href="https://markdown.tw/" target="_blank" rel="noopener" title="語法說明">語法</a>，比較偷懶的人可以用<a href="https://hackmd.io/" target="_blank" rel="noopener" title="HackMD">HackMD</a>，它有提供一些基本編輯的快捷鍵，改好在貼過來也可以。</p>
+<h1 id="Github-Deploy"><a href="#Github-Deploy" class="headerlink" title="Github Deploy"></a>Github Deploy</h1><p>當你完成上面的修改，就可以透過Github來Deploy你的BLOG了。</p>
+<h2 id="前置作業-1"><a href="#前置作業-1" class="headerlink" title="前置作業"></a>前置作業</h2><ul>
+<li><p>註冊一個 <a href="https://github.com/" target="_blank" rel="noopener" title="Github">Github</a>帳號，並且新增一個 <code>Repositories</code></p>
+  <img src="/images/hexo-setup_git_create.png">
 </li>
-<li><p><code>my_blog/_config.yml</code>: 修改網站資訊，例如作者、語系以及Deploy的路徑。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Site</span></span><br><span class="line">title: 史帝芬技術分享</span><br><span class="line">subtitle: 6一波6666</span><br><span class="line">description: 寫程式就是學無止盡，不停的學習</span><br><span class="line">keywords: C<span class="comment">#</span></span><br><span class="line">author: Steven hu</span><br><span class="line">language: zh-TW</span><br><span class="line">timezone: Asia/Taipei</span><br><span class="line"></span><br><span class="line"><span class="comment"># URL</span></span><br><span class="line">url: https://stevenhu0124.github.io</span><br><span class="line">root: </span><br><span class="line">permalink: :year/:month/:day/:title/ (https://stevenhu0124.github.io/2020/6/10/home)</span><br><span class="line">permalink_defaults:</span><br><span class="line">pretty_urls:</span><br><span class="line">  trailing_index: <span class="literal">true</span> <span class="comment"># Set to false to remove trailing 'index.html' from permalinks</span></span><br><span class="line">  trailing_html: <span class="literal">true</span> <span class="comment"># Set to false to remove trailing '.html' from permalinks</span></span><br></pre></td></tr></table></figure></li>
-<li><p><code>my_blog/themes/landscape/_config.yml</code>: 修改網站介面、或是效果。<br>主題的設定檔就得依照自己所使用的主題來，做效果及顯示的修改</p>
+<li><p>接著設定<code>Repositories</code>，名稱為 <code>username.github.io</code>，其中 <code>username</code>請填上你剛剛申請的帳號。</p>
+  <img src="/images/hexo-setup_git_re.png">
+
 </li>
 </ul>
+<h2 id="Hexo-設定"><a href="#Hexo-設定" class="headerlink" title="Hexo 設定"></a>Hexo 設定</h2><ul>
+<li><p>再來回到<code>my_blog/_config.yml</code>的路徑底下，更新你 <code>deploy</code> 路徑</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">    <span class="built_in">type</span>: git <span class="comment">#</span></span><br><span class="line">    repo: https://github.com/username/username.github.io</span><br><span class="line">    message: <span class="string">"Updated: &#123;&#123; now('YYYY-MM-DD HH:mm:ss') &#125;&#125;"</span> <span class="comment"># 每次depoly的commit 格式</span></span><br><span class="line">    name: username</span><br><span class="line">    email:</span><br></pre></td></tr></table></figure></li>
+<li><p>第一次 <code>deploy</code> 需要用 <code>npm</code> 安裝 <code>git deploy</code>的套件”</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>開始 <code>deploy</code> 到你的 <code>https://github.com/username/username.github.io</code></p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo clean <span class="comment"># 清除靜態檔</span></span><br><span class="line">hexo d -g <span class="comment"># deploy到你指定的路徑，並產生新的靜態檔</span></span><br></pre></td></tr></table></figure>
+<p>大約等待3分鐘左右，你就可以直接到 <code>username.github.io</code>來看你發布的BLOG囉!</p>
+</li>
+</ul>
+<p>如果有任何問題，歡迎底下留言，我會盡可能的幫你解答。</p>
 
     </div>
 
@@ -333,7 +354,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-Hexo-的原因"><span class="nav-number">1.1.</span> <span class="nav-text">使用 Hexo 的原因</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#前置作業"><span class="nav-number">1.2.</span> <span class="nav-text">前置作業</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Hexo安裝"><span class="nav-number">2.</span> <span class="nav-text">Hexo安裝</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo-專案建立"><span class="nav-number">2.1.</span> <span class="nav-text">Hexo 專案建立</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo-預覽你的BlOG"><span class="nav-number">2.2.</span> <span class="nav-text">Hexo 預覽你的BlOG</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Hexo-設定檔介紹"><span class="nav-number">3.</span> <span class="nav-text">Hexo 設定檔介紹</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-Hexo-的原因"><span class="nav-number">1.1.</span> <span class="nav-text">使用 Hexo 的原因</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#前置作業"><span class="nav-number">1.2.</span> <span class="nav-text">前置作業</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Hexo安裝"><span class="nav-number">2.</span> <span class="nav-text">Hexo安裝</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo-專案建立"><span class="nav-number">2.1.</span> <span class="nav-text">Hexo 專案建立</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo-預覽你的BlOG"><span class="nav-number">2.2.</span> <span class="nav-text">Hexo 預覽你的BlOG</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Hexo-設定檔介紹"><span class="nav-number">3.</span> <span class="nav-text">Hexo 設定檔介紹</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#新增文章"><span class="nav-number">4.</span> <span class="nav-text">新增文章</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Github-Deploy"><span class="nav-number">5.</span> <span class="nav-text">Github Deploy</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#前置作業-1"><span class="nav-number">5.1.</span> <span class="nav-text">前置作業</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo-設定"><span class="nav-number">5.2.</span> <span class="nav-text">Hexo 設定</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -463,7 +484,7 @@
   var disqus_config = function() {
     this.page.url = "https://stevenhu0124.github.io/hexo-setup/";
     this.page.identifier = "hexo-setup/";
-    this.page.title = "Hexo的快速建置";
+    this.page.title = "用Hexo來建立的你的BLOG";
     };
   NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
     if (window.DISQUS) {
