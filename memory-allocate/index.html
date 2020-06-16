@@ -20,31 +20,35 @@
     var CONFIG = {"hostname":"stevenhu0124.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="寫程式就是學無止盡，不停的學習">
-<meta property="og:type" content="website">
-<meta property="og:title" content="史帝芬來寫CODE">
-<meta property="og:url" content="https://stevenhu0124.github.io/index.html">
+  <meta name="description" content="前言還記得在念書的時候，總是要硬記許多專有名詞，定義是記起來了，但是實際上如果沒有透過實作，我覺得真的很難理解其中精華的所在，所以這次的主題會透過幾個範例，讓 Stack 跟 Heap更容易去理解。 基本介紹在開始之前，我們先透過基本介紹，先來了解兩者間的特性。 Stack 靜態記憶體配置(顧名思義在編譯的時候記憶體位置已分配) 記憶體空間是連續的 資源由編譯器控制(分配、釋放)，不需要再額外控制">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C# Stack V.S Heap">
+<meta property="og:url" content="https://stevenhu0124.github.io/memory-allocate/index.html">
 <meta property="og:site_name" content="史帝芬來寫CODE">
-<meta property="og:description" content="寫程式就是學無止盡，不停的學習">
+<meta property="og:description" content="前言還記得在念書的時候，總是要硬記許多專有名詞，定義是記起來了，但是實際上如果沒有透過實作，我覺得真的很難理解其中精華的所在，所以這次的主題會透過幾個範例，讓 Stack 跟 Heap更容易去理解。 基本介紹在開始之前，我們先透過基本介紹，先來了解兩者間的特性。 Stack 靜態記憶體配置(顧名思義在編譯的時候記憶體位置已分配) 記憶體空間是連續的 資源由編譯器控制(分配、釋放)，不需要再額外控制">
 <meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://stevenhu0124.github.io/images/memory-allocate_flow.png">
+<meta property="article:published_time" content="2020-06-16T14:21:40.000Z">
+<meta property="article:modified_time" content="2020-06-16T17:35:14.742Z">
 <meta property="article:author" content="Steven Hu">
 <meta property="article:tag" content="C#">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://stevenhu0124.github.io/images/memory-allocate_flow.png">
 
-<link rel="canonical" href="https://stevenhu0124.github.io/">
+<link rel="canonical" href="https://stevenhu0124.github.io/memory-allocate/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'zh-TW'
   };
 </script>
 
-  <title>史帝芬來寫CODE</title>
+  <title>C# Stack V.S Heap | 史帝芬來寫CODE</title>
   
 
 
@@ -175,81 +179,10 @@
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://stevenhu0124.github.io/type-compare/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Steven Hu">
-      <meta itemprop="description" content="寫程式就是學無止盡，不停的學習">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="史帝芬來寫CODE">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/type-compare/" class="post-title-link" itemprop="url">C# Value Type V.S Reference Type</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">發表於</span>
-              
-
-              <time title="創建時間：2020-06-16 23:31:16 / 修改時間：23:36:12" itemprop="dateCreated datePublished" datetime="2020-06-16T23:31:16+08:00">2020-06-16</time>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus：</span>
-    
-    <a title="disqus" href="/type-compare/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="type-compare/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
 
     
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="文章編輯中…"><a href="#文章編輯中…" class="headerlink" title="文章編輯中…"></a>文章編輯中…</h1>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
@@ -265,10 +198,9 @@
       <meta itemprop="name" content="史帝芬來寫CODE">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/memory-allocate/" class="post-title-link" itemprop="url">C# Stack V.S Heap</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          C# Stack V.S Heap
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -297,6 +229,13 @@
             </span>
 
           
+            <span class="post-meta-item" title="閱讀次數" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">閱讀次數：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
   
   <span class="post-meta-item">
     
@@ -321,7 +260,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>還記得在念書的時候，總是要硬記許多專有名詞，定義是記起來了，但是實際上如果沒有透過實作，我覺得真的很難理解其中精華的所在，所以這次的主題會透過幾個範例，讓 <code>Stack</code> 跟 <code>Heap</code>更容易去理解。</p>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>還記得在念書的時候，總是要硬記許多專有名詞，定義是記起來了，但是實際上如果沒有透過實作，我覺得真的很難理解其中精華的所在，所以這次的主題會透過幾個範例，讓 <code>Stack</code> 跟 <code>Heap</code>更容易去理解。</p>
 <h1 id="基本介紹"><a href="#基本介紹" class="headerlink" title="基本介紹"></a>基本介紹</h1><p>在開始之前，我們先透過基本介紹，先來了解兩者間的特性。</p>
 <h2 id="Stack"><a href="#Stack" class="headerlink" title="Stack"></a>Stack</h2><ul>
 <li>靜態記憶體配置(顧名思義在編譯的時候記憶體位置已分配)</li>
@@ -351,113 +290,49 @@
 <hr>
 <p>如果有任何問題，歡迎底下留言，我會盡可能的幫你解答。當然如果文章內容有理解錯誤的地方，也歡迎大家糾正，讓我們互相學習、有錯就改，這樣我們才能不斷的進步。</p>
 
-      
     </div>
 
     
     
     
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
+          <div class="post-tags">
+              <a href="/tags/C/" rel="tag"># C#</a>
+          </div>
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://stevenhu0124.github.io/hexo-setup/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Steven Hu">
-      <meta itemprop="description" content="寫程式就是學無止盡，不停的學習">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="史帝芬來寫CODE">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/hexo-setup/" class="post-title-link" itemprop="url">用Hexo來建立的你的BLOG</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">發表於</span>
-
-              <time title="創建時間：2020-06-10 23:58:56" itemprop="dateCreated datePublished" datetime="2020-06-10T23:58:56+08:00">2020-06-10</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2020-06-16 23:43:51" itemprop="dateModified" datetime="2020-06-16T23:43:51+08:00">2020-06-16</time>
-              </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus：</span>
-    
-    <a title="disqus" href="/hexo-setup/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="hexo-setup/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>唯有不斷的學習充實自己，方能使自己持續成長，程式語言的世界中只有學無止盡，人腦不比電腦，我們只能透過紀錄的方式來加深印象，甚至是幫助也正在學習的你們。最後終於花了點時間看完官方的文件，也終於將BLOG的雛型給建立起來，俗話話說得好打鐵就是要趁熱，馬上完成第一篇教學紀錄。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/hexo-setup/#more" rel="contents">
-                閱讀全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
         
-      
-    </div>
 
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/hexo-setup/" rel="prev" title="用Hexo來建立的你的BLOG">
+      <i class="fa fa-chevron-left"></i> 用Hexo來建立的你的BLOG
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/type-compare/" rel="next" title="C# Value Type V.S Reference Type">
+      C# Value Type V.S Reference Type <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
       </footer>
+    
   </article>
   
   
-  
-
-
   
 
 
 
           </div>
           
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -504,6 +379,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基本介紹"><span class="nav-number">2.</span> <span class="nav-text">基本介紹</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Stack"><span class="nav-number">2.1.</span> <span class="nav-text">Stack</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Heap"><span class="nav-number">2.2.</span> <span class="nav-text">Heap</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#實作做起來"><span class="nav-number">3.</span> <span class="nav-text">實作做起來</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#結論"><span class="nav-number">4.</span> <span class="nav-text">結論</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -654,6 +530,26 @@
   }
   // defer loading until the whole page loading is completed
   window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://stevenhu0124.github.io/memory-allocate/";
+    this.page.identifier = "memory-allocate/";
+    this.page.title = "C# Stack V.S Heap";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://stevenhu0124-blog.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
 </script>
 
 </body>
