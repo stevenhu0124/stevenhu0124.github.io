@@ -1,46 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>C# Stack V.S Heap</title>
-    <url>/memory-allocate/</url>
-    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>還記得在念書的時候，總是要硬記許多專有名詞，定義是記起來了，但是實際上如果沒有透過實作，我覺得真的很難理解其中精華的所在，所以這次的主題會透過幾個範例，讓 <code>Stack</code> 跟 <code>Heap</code>更容易去理解。</p>
-<h1 id="基本介紹"><a href="#基本介紹" class="headerlink" title="基本介紹"></a>基本介紹</h1><p>在開始之前，我們先透過基本介紹，先來了解兩者間的特性。</p>
-<h2 id="Stack"><a href="#Stack" class="headerlink" title="Stack"></a>Stack</h2><ul>
-<li>靜態記憶體配置(顧名思義在編譯的時候記憶體位置已分配)</li>
-<li>記憶體空間是連續的</li>
-<li>資源由編譯器控制(分配、釋放)，不需要再額外控制</li>
-<li>同時存放 <code>Value Type</code> 的值，存放 <code>Reference Tpye</code> 記憶體位置</li>
-</ul>
-<h2 id="Heap"><a href="#Heap" class="headerlink" title="Heap"></a>Heap</h2><ul>
-<li>動態記憶體位置(當程式執行的時候，才會分配記憶體位置)</li>
-<li>記憶體空間不連續</li>
-<li>資源由設計者控制(分配、釋放)，來避免<code>Memory leak</code></li>
-<li>存放 <code>Reference Tpye</code> 的值</li>
-</ul>
-<p>關於<code>Value Type &amp; Reference Type</code> 的介紹可以<a href="../type-compare">參考此篇</a>即可</p>
-<h1 id="實作做起來"><a href="#實作做起來" class="headerlink" title="實作做起來"></a>實作做起來</h1><p>根據上面 <code>Stack</code> 以及 <code>Heap</code> 的基本介紹後，我們再透過以下的實作讓印象更加深刻吧</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> height = <span class="number">180</span>;</span><br><span class="line">    <span class="keyword">int</span> weight = <span class="number">80</span>;</span><br><span class="line">    Person steven = <span class="keyword">new</span> Person() &#123; Height = <span class="number">180</span>, Weight = <span class="number">80</span> &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Person</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> Height &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> Weight &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<img src="/images/memory-allocate_flow.png">
-
-<p>這個部份我們用個簡易的流程圖，來解釋 <code>Main</code> 的執行流程。溫馨提醒以下步驟請搭配流程圖使用&gt;.*~。</p>
-<ol>
-<li>STEP1: 由於 <code>height</code> 為 <code>int</code> 屬於 <code>Value Type</code> 所以會被配置到<code>Stack</code>當中</li>
-<li>STEP2: <code>weight</code> 同 STEP1， 也會配置到<code>Stack</code>中</li>
-<li>STEP3: <code>Person</code> 為 <code>class</code> 屬於 <code>Reference Type</code>，當它被<code>new</code>起來的時候會在 <code>Heap</code> 中動態產生一個記憶體位置(<code>0x3333</code>)來存放它的屬性資料，接著在<code>Stack</code>當中配置一個變數<code>steven</code>，而它所參考的記憶體位置為(<code>0x3333</code>)</li>
-<li>STEP4: 當 <code>Main</code>結束離開的時候，<code>Stack</code>的內容會隨著程式結束而清空(<code>LIFO</code>)，<code>Heap</code>所存的記憶體位址不會立刻被取消分配，需等到 <code>GC</code>後才會重新開始分配此空間</li>
-</ol>
-<h1 id="結論"><a href="#結論" class="headerlink" title="結論"></a>結論</h1><p>關於<code>Stack</code> 和 <code>Heap</code>的特性還是必須了解清楚，這樣當你在開發程式的時候，才能避免掉<code>System.StackOverflowException</code> 以及 <code>Memory leak</code>的問題!</p>
-<hr>
-<p>如果有任何問題，歡迎底下留言，我會盡可能的幫你解答。當然如果文章內容有理解錯誤的地方，也歡迎大家糾正，讓我們互相學習、有錯就改，這樣我們才能不斷的進步。</p>
-]]></content>
-      <categories>
-        <category>C#小知識</category>
-      </categories>
-      <tags>
-        <tag>C#</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>用Hexo來建立的你的BLOG</title>
     <url>/hexo-setup/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>唯有不斷的學習充實自己，方能使自己持續成長，程式語言的世界中只有學無止盡，人腦不比電腦，我們只能透過紀錄的方式來加深印象，甚至是幫助也正在學習的你們。最後終於花了點時間看完官方的文件，也終於將BLOG的雛型給建立起來，俗話話說得好打鐵就是要趁熱，馬上完成第一篇教學紀錄。</p>
@@ -113,8 +73,48 @@
       </tags>
   </entry>
   <entry>
-    <title>C# Value Type V.S Reference Type</title>
-    <url>/type-compare/</url>
-    <content><![CDATA[<h1 id="文章編輯中…"><a href="#文章編輯中…" class="headerlink" title="文章編輯中…"></a>文章編輯中…</h1>]]></content>
+    <title>C# Stack V.S Heap 記憶體空間配置</title>
+    <url>/memory-allocate/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>還記得在念書的時候，總是要硬記許多專有名詞，定義是記起來了，但是實際上如果沒有透過實作，我覺得真的很難理解其中精華的所在，所以這次的主題會透過幾個範例，讓 <code>Stack</code> 跟 <code>Heap</code>更容易去理解。 </p>
+<a id="more"></a>
+<h1 id="基本介紹"><a href="#基本介紹" class="headerlink" title="基本介紹"></a>基本介紹</h1><p>在開始之前，我們先透過基本介紹，先來了解兩者間的特性。</p>
+<h2 id="Stack"><a href="#Stack" class="headerlink" title="Stack"></a>Stack</h2><ul>
+<li>靜態記憶體配置(顧名思義在編譯的時候記憶體位址已分配)</li>
+<li>記憶體空間是連續的</li>
+<li>資源由編譯器控制(分配、釋放)，不需要再額外控制</li>
+<li>同時存放 <code>Value Type</code> 的值，存放 <code>Reference Tpye</code> 記憶體位址</li>
+</ul>
+<h2 id="Heap"><a href="#Heap" class="headerlink" title="Heap"></a>Heap</h2><ul>
+<li>動態記憶體位址(當程式執行的時候，才會分配記憶體位址)</li>
+<li>記憶體空間不連續</li>
+<li>資源由設計者控制(分配、釋放)，來避免<code>Memory leak</code></li>
+<li>存放 <code>Reference Tpye</code> 的值</li>
+</ul>
+<p>如果還不清楚<code>Value Type &amp; Reference Type</code>的請<a href="../type-compare">參考此篇</a></p>
+<h1 id="實作做起來"><a href="#實作做起來" class="headerlink" title="實作做起來"></a>實作做起來</h1><p>根據上面 <code>Stack</code> 以及 <code>Heap</code> 的基本介紹後，我們再透過以下的實作讓印象更加深刻吧</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> height = <span class="number">180</span>;</span><br><span class="line">    <span class="keyword">int</span> weight = <span class="number">80</span>;</span><br><span class="line">    Person steven = <span class="keyword">new</span> Person() &#123; Height = <span class="number">180</span>, Weight = <span class="number">80</span> &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Person</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> Height &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> Weight &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<img src="/images/memory-allocate_flow.png">
+
+<p>這個部份我們用個簡易的流程圖，來解釋 <code>Main</code> 的執行流程。溫馨提醒以下步驟請搭配流程圖使用&gt;.*~。</p>
+<ol>
+<li>STEP1: 由於 <code>height</code> 為 <code>int</code> 屬於 <code>Value Type</code> 所以會被配置到<code>Stack</code>當中</li>
+<li>STEP2: <code>weight</code> 同 STEP1， 也會配置到<code>Stack</code>中</li>
+<li>STEP3: <code>Person</code> 宣告為 <code>class</code> 屬於 <code>Reference Type</code>，首先它會在 <code>stack</code> 配置一個存放 <code>steven</code> 的記憶體位址的空間，當使用者去 <code>new</code> 起來 <code>steven</code> 的時候，接著就在<code>Heap</code>上配置 <code>Person</code> 的屬性資料，再將這個存放在 <code>Heap</code> 的位址(<code>0x3333</code>)傳回給存放在 <code>Stack</code> 的記憶體位址的空間 <code>steven</code>給他參考(<code>0x3333</code>)。</li>
+<li>STEP4: 當 <code>Main</code>結束離開的時候，<code>Stack</code>的內容會隨著程式結束而清空(<code>LIFO</code>)，<code>Heap</code>所存的記憶體位址不會立刻被取消分配，需等到 <code>GC</code>後才會重新開始分配此空間</li>
+</ol>
+<h1 id="補充說明"><a href="#補充說明" class="headerlink" title="補充說明"></a>補充說明</h1><ul>
+<li>關於<code>Stack</code> 和 <code>Heap</code>的特性還是必須了解清楚，這樣當你在開發程式的時候，才能避免掉<code>System.StackOverflowException</code> 以及 <code>Memory leak</code>的問題</li>
+<li><code>C#</code> 以及 <code>Java</code> 都有提供 <code>GC (Garbage Collection)</code> 的機制，該如何使用呢? 我們接下來會再有另一篇文章詳細介紹。</li>
+<li>當你了解記憶體配置的基本知識後，我們就可以了解為什麼需要用到 <code>using statement</code> </li>
+</ul>
+<hr>
+<p>如果有任何問題，歡迎底下留言，我會盡可能的幫你解答。當然如果文章內容有理解錯誤的地方，也歡迎大家糾正，讓我們互相學習、有錯就改，這樣我們才能不斷的進步。</p>
+]]></content>
+      <categories>
+        <category>C#小知識</category>
+      </categories>
+      <tags>
+        <tag>C#</tag>
+      </tags>
   </entry>
 </search>
